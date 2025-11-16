@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krutarth Lad - Data Scientist</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background: #000;
+            color: #f5f5f7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 22px;
+        }
+
+        .nav-logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: #f5f5f7;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 113, 227, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 96px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 15px;
+            color: #f5f5f7;
+        }
+
+        .hero .location {
+            font-size: 24px;
+            font-weight: 400;
+            color: #0071e3;
+            margin-bottom: 40px;
+        }
+
+        .hero .tagline {
+            font-size: 28px;
+            font-weight: 400;
+            color: #a1a1a6;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 28px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #0071e3;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2997ff;
+            border: 1px solid #2997ff;
+        }
+
+        .btn-secondary:hover {
+            background: #2997ff;
+            color: #fff;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 22px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-light {
+            background: #f5f5f7;
+            color: #1d1d1f;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        .section-dark {
+            background: #000;
+            color: #f5f5f7;
+        }
+
+        .section-title {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 24px;
+            color: #86868b;
+            text-align: center;
+            margin-bottom: 80px;
+            font-weight: 400;
+        }
+
+        /* Tech Stack Grid */
+        .tech-stack-container {
+            background: white;
+            border-radius: 24px;
+            padding: 60px;
+            margin-top: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 50px 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .tech-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            gap: 15px;
+        }
+
+        .tech-logo:hover {
+            transform: scale(1.15);
+        }
+
+        .tech-logo-img {
+            width: 120px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-logo-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(0%);
+        }
+
+        .tech-logo-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-align: center;
+        }
+
+        /* Projects */
+        .project-card {
+            background: #1d1d1f;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+
+        .project-content {
+            padding: 60px;
+        }
+
+        .project-card h3 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .project-date {
+            font-size: 17px;
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+
+        .project-card ul {
+            list-style: none;
+        }
+
+        .project-card li {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #a1a1a6;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .project-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0071e3;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* Experience */
+        .experience-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .exp-card {
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(0, 113, 227, 0.05) 100%);
+            border-radius: 24px;
+            padding: 50px;
+            border: 1px solid rgba(0, 113, 227, 0.2);
+            transition: all 0.4s;
+        }
+
+        .exp-card:hover {
+            border-color: rgba(0, 113, 227, 0.4);
+            transform: translateX(10px);
+        }
+
+        .exp-card h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .exp-title {
+            font-size: 21px;
+            color: #0071e3;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .exp-date {
+            font-size: 17px;
+            color: #86868b;
+            margin-bottom: 25px;
+        }
+
+        .exp-card ul {
+            list-style: none;
+        }
+
+        .exp-card li {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #a1a1a6;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .exp-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0071e3;
+            font-size: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f7;
+            color: #1d1d1f;
+            padding: 60px 22px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #86868b;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero .tagline {
+                font-size: 21px;
+            }
+
+            .section-title {
+                font-size: 40px;
+            }
+
+            .section-subtitle {
+                font-size: 19px;
+            }
+
+            .project-content {
+                padding: 40px 30px;
+            }
+
+            .project-card h3 {
+                font-size: 28px;
+            }
+
+            .exp-card {
+                padding: 30px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .tech-stack-container {
+                padding: 40px 30px;
+            }
+
+            .tech-stack-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 40px 30px;
+            }
+
+            .tech-logo-img {
+                width: 90px;
+                height: 60px;
+            }
+
+            .tech-logo-name {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="nav-logo">Krutarth Lad</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Krutarth Lad</h1>
+            <p class="location">📍 Olathe, Kansas</p>
+            <p class="tagline">Data Scientist | Machine Learning Engineer | Cloud Infrastructure Specialist</p>
+            <div class="cta-buttons">
+                <a href="mailto:Krutarthlad0409@icloud.com" class="btn-primary">Get in touch</a>
+                <a href="https://www.linkedin.com/in/krutarth-l-07ba78128" target="_blank" class="btn-secondary">View LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-light">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 120px 22px;">
+            <h2 class="section-title" style="color: #1d1d1f;">Technology Stack</h2>
+            <p class="section-subtitle" style="color: #86868b;">Expertise across the modern data science and DevOps ecosystem.</p>
+            
+            <div class="tech-stack-container">
+                <div class="tech-stack-grid">
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP">
+                        </div>
+                        <div class="tech-logo-name">Google Cloud</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+                        </div>
+                        <div class="tech-logo-name">Python</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="SQL">
+                        </div>
+                        <div class="tech-logo-name">SQL</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
+                        </div>
+                        <div class="tech-logo-name">Azure</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+                        </div>
+                        <div class="tech-logo-name">Git</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+                        </div>
+                        <div class="tech-logo-name">Pandas</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+                        </div>
+                        <div class="tech-logo-name">TensorFlow</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+                        </div>
+                        <div class="tech-logo-name">GitHub</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS">
+                        </div>
+                        <div class="tech-logo-name">AWS</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
+                        </div>
+                        <div class="tech-logo-name">Kubernetes</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg" alt="Matplotlib">
+                        </div>
+                        <div class="tech-logo-name">Matplotlib</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
+                        </div>
+                        <div class="tech-logo-name">Docker</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+                        </div>
+                        <div class="tech-logo-name">NumPy</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn-icons-png.flaticon.com/512/8637/8637099.png" alt="LLM">
+                        </div>
+                        <div class="tech-logo-name">LLM</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Deep Learning">
+                        </div>
+                        <div class="tech-logo-name">Deep Learning</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn-icons-png.flaticon.com/512/8637/8637115.png" alt="Machine Learning">
+                        </div>
+                        <div class="tech-logo-name">Machine Learning</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg" alt="Apache Spark">
+                        </div>
+                        <div class="tech-logo-name">Apache Spark</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://www.vectorlogo.zone/logos/databricks/databricks-icon.svg" alt="Databricks">
+                        </div>
+                        <div class="tech-logo-name">Databricks</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/hadoop/hadoop-original.svg" alt="Hadoop">
+                        </div>
+                        <div class="tech-logo-name">Apache Hadoop</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachekafka/apachekafka-original.svg" alt="Apache Kafka">
+                        </div>
+                        <div class="tech-logo-name">Apache Kafka</div>
+                    </div>
+                    <div class="tech-logo">
+                        <div class="tech-logo-img">
+                            <img src="https://www.vectorlogo.zone/logos/snowflake/snowflake-icon.svg" alt="Snowflake">
+                        </div>
+                        <div class="tech-logo-name">Snowflake</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-dark">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">Driving innovation across leading organizations.</p>
+        
+        <div class="experience-grid">
+            <div class="exp-card">
+                <h3>Security Benefit</h3>
+                <div class="exp-title">Cloud Infrastructure</div>
+                <p class="exp-date">November 2025 - Present | Overland Park, Kansas</p>
+            </div>
+
+            <div class="exp-card">
+                <h3>HCLTech</h3>
+                <div class="exp-title">Data Scientist</div>
+                <p class="exp-date">May 2022 - August 2022 | Frisco, Texas</p>
+                <ul>
+                    <li>Increased customer satisfaction by 15% through cross-functional feature development</li>
+                    <li>Reduced data analysis time by 20% with optimized Alteryx workflows</li>
+                    <li>Managed Agile sprints delivering successful stakeholder presentations</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-light">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 120px 22px;">
+            <h2 class="section-title" style="color: #1d1d1f;">Featured Projects</h2>
+            <p class="section-subtitle" style="color: #86868b;">Delivering measurable impact through data-driven solutions.</p>
+        
+        <div class="project-card" style="background: white; border: 1px solid #e0e0e0;">
+            <div class="project-content">
+                <h3 style="color: #1d1d1f;">Hospital Readmission Prediction</h3>
+                <p class="project-date" style="color: #86868b;">January 2025 - May 2025</p>
+                <ul>
+                    <li style="color: #1d1d1f;">Achieved 85% accuracy in predicting 30-day hospital readmission risk using XGBoost and logistic regression</li>
+                    <li style="color: #1d1d1f;">Enhanced clinical transparency with SHAP analysis, providing interpretability scores for 95% of cases</li>
+                    <li style="color: #1d1d1f;">Reduced clinical staff data interpretation time by 40% with interactive Power BI/Streamlit dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-card" style="background: white; border: 1px solid #e0e0e0;">
+            <div class="project-content">
+                <h3 style="color: #1d1d1f;">Advanced Healthcare Analytics</h3>
+                <p class="project-date" style="color: #86868b;">August 2024 - December 2024</p>
+                <ul>
+                    <li style="color: #1d1d1f;">Enhanced classification accuracy to 95% on Breast Cancer and MNIST datasets with ensemble learning</li>
+                    <li style="color: #1d1d1f;">Reduced feature dimensionality by 75%, boosting model interpretability by 60%</li>
+                    <li style="color: #1d1d1f;">Accelerated training efficiency by 40% through neural network optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="project-card" style="background: white; border: 1px solid #e0e0e0;">
+            <div class="project-content">
+                <h3 style="color: #1d1d1f;">Cloud Deployment Pipeline</h3>
+                <p class="project-date" style="color: #86868b;">January 2024 - May 2024</p>
+                <ul>
+                    <li style="color: #1d1d1f;">Reduced deployment errors by 40% with robust CI/CD pipelines using Jenkins, Docker, and AWS</li>
+                    <li style="color: #1d1d1f;">Accelerated software release cadence by 30% through optimized testing and staging pipelines</li>
+                    <li style="color: #1d1d1f;">Enhanced system uptime by 20% with real-time monitoring and alerting tools</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section-dark">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 120px 22px;">
+            <h2 class="section-title">Education</h2>
+            <div class="experience-grid" style="margin-top: 40px;">
+                <div class="exp-card">
+                    <h3>University of Missouri-Kansas City</h3>
+                    <div class="exp-title">Master of Science - Computer Science</div>
+                    <p class="exp-date">Emphasis in Data Science</p>
+                </div>
+                <div class="exp-card">
+                    <h3>University of Missouri-Kansas City</h3>
+                    <div class="exp-title">Bachelor's Degree - Computer Science</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="mailto:Krutarthlad0409@icloud.com">Email</a>
+                <a href="https://www.linkedin.com/in/krutarth-l-07ba78128" target="_blank">LinkedIn</a>
+            </div>
+            <p class="copyright">© 2025 Krutarth Lad. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
