@@ -57,18 +57,3 @@ docker pull YOUR_DOCKERHUB_USERNAME/krutarth-portfolio:latest
 docker run -d -p 8080:80 YOUR_DOCKERHUB_USERNAME/krutarth-portfolio:latest
 ```
 
-### Option 2: Deploy to Cloud
-- **AWS ECS/Fargate**: Use the Docker image
-- **Google Cloud Run**: Deploy container directly
-- **Azure Container Instances**: Deploy from Docker Hub
-- **DigitalOcean App Platform**: Connect GitHub repo
-
-### Option 3: Free Hosting Options
-- **Netlify**: Deploy static HTML directly (no Docker needed)
-- **Vercel**: Push to GitHub and connect
-- **GitHub Pages**: Enable in repository settings
-- **Render**: Deploy Docker container for free
-
-## Contact
-- Email: Krutarthlad0409@icloud.com
-- LinkedIn: [linkedin.com/in/krutarth-l-07ba78128](https://www.linkedin.com/in/krutarth-l-07ba78128)
